@@ -57,7 +57,7 @@ public class LoginServiceFunctionalTest {
         wait.until(ExpectedConditions.urlContains("login"));
 
         String errorMessage = driver.findElement(By.id("error")).getText();
-        assertEquals("Inco1rrect credentials", errorMessage);
+        assertEquals("Incorrect credentials", errorMessage);
     }
 
     @After
