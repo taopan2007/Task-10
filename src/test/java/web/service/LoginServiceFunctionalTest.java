@@ -17,18 +17,12 @@ public class LoginServiceFunctionalTest {
 
     @Before
     public void setUp() {
-        String os = System.getProperty("os.name").toLowerCase();
-        if (os.contains("win")) {
-            System.setProperty("webdriver.chrome.driver", "D:\\Programs\\chromedriver-win64\\chromedriver.exe");
-        } else if (os.contains("nix") || os.contains("nux") || os.contains("mac")) {
-            System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
-        } else {
-            throw new IllegalStateException("Unsupported operating system: " + os);
-        }
+        System.setProperty("webdriver.chrome.driver", "D:\\Programs\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("http://127.0.0.1:8080/login");
         System.out.println("Page title is: " + driver.getTitle());
     }
+
     @Test
     public void testLoginSuccess() {
         WebElement usernameField = driver.findElement(By.id("username"));
