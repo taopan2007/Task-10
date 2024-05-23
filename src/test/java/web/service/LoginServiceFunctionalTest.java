@@ -9,10 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
-
-
-import io.github.bonigarcia.wdm.ChromeDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import static org.junit.Assert.*;
@@ -23,8 +21,8 @@ public class LoginServiceFunctionalTest {
     @Before
     public void setUp() {
        // System.setProperty("webdriver.chrome.driver", "D:\\Programs\\chromedriver-win64\\chromedriver.exe");
-    	WebDriverManager.getInstance(CHROME).setup();
-        driver = new ChromeDriver();
+    	WebDriverManager.chromedriver().setup();
+    	driver = new ChromeDriver();
         driver.get("http://127.0.0.1:8080/login");
         System.out.println("Page title is: " + driver.getTitle());
     }
